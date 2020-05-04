@@ -1,0 +1,11 @@
+---
+extends: default
+
+ignore: |
+  /cache/
+  /node_modules/
+
+rules:
+  line-length:
+    max: 80
+    level: warning
