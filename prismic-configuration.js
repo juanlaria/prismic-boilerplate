@@ -1,4 +1,6 @@
-export const apiEndpoint = 'https://juanlaria.cdn.prismic.io/api/v2';
+
+const REPOSITORY = process.env.PRISMIC_REPOSITORY_NAME;
+export const apiEndpoint = `https://${REPOSITORY}.cdn.prismic.io/api/v2`;
 
 export const accessToken = '';
 
