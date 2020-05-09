@@ -1,22 +1,33 @@
 import React from 'react';
-import { getAllPagesUids, getPageData } from '../lib/pages';
-import htmlSerializer from '../utils/htmlSerializer';
-import { RichText } from 'prismic-reactjs';
+import { getAllPagesUids, getPageData } from '../utils/api';
 import Layout from '../components/layout';
+import Render from '../components/render';
 
 export default function Page({ doc, preview }) {
   if (doc.data) {
+    const {
+      metadata_canonical,
+      metadata_description,
+      metadata_indexing,
+      metadata_keywords,
+      metadata_title,
+      social,
+      body,
+    } = doc.data;
+
+    const metadata = {
+      canonical: metadata_canonical,
+      description: metadata_description,
+      indexing: metadata_indexing,
+      keywords: metadata_keywords,
+      title: metadata_title,
+    };
+
     return (
-      <Layout preview={preview}>
-        {doc.data.title && (
-          <RichText render={doc.data.title} htmlSerializer={htmlSerializer} />
-        )}
-        {doc.data.description && (
-          <RichText
-            render={doc.data.description}
-            htmlSerializer={htmlSerializer}
-          />
-        )}
+      <Layout preview={preview} metadata={metadata} social={social}>
+        {body.map((element, index) => {
+          return <Render data={element} key={`render-${index}`} />
+        })}
       </Layout>
     );
   } else {
