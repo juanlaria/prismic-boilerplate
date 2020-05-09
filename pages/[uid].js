@@ -26,7 +26,7 @@ export default function Page({ doc, preview }) {
     return (
       <Layout preview={preview} metadata={metadata} social={social}>
         {body.map((element, index) => {
-          return <Render data={element} key={`render-${index}`} />
+          return <Render data={element} key={`render-${index}`} />;
         })}
       </Layout>
     );
