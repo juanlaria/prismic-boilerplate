@@ -1,5 +1,7 @@
 import Head from 'next/head';
 
+const { PUBLIC_NAME } = process.env;
+
 export default function Metadata({
   title,
   canonical,
@@ -9,14 +11,10 @@ export default function Metadata({
 }) {
   return (
     <Head>
-      <title>{title || 'Site Name'}</title>
+      <title>{title || PUBLIC_NAME}</title>
       {canonical && <link rel="canonical" href={canonical} />}
-      {description && (
-        <meta name="description" content={description} />
-      )}
-      {keywords && (
-        <meta name="keywords" content={keywords} />
-      )}
+      {description && <meta name="description" content={description} />}
+      {keywords && <meta name="keywords" content={keywords} />}
       {indexing && <meta name="robots" content={indexing} />}
     </Head>
   );
