@@ -14,10 +14,25 @@ export async function getAllPagesUids() {
   });
 }
 
+export async function getSitemapData() {
+  const pages = await Client().query(
+    Prismic.Predicates.at('document.type', 'page')
+  );
+  return pages.results.map(page => {
+    const { uid, last_publication_date: lastPublicationDate } = page;
+    return {
+      params: {
+        uid,
+        lastPublicationDate,
+      },
+    };
+  });
+}
+
 export async function getPageData(req, uid, previewData) {
   const prismicClient = Client(req);
   const prismicAPI = await prismicClient.getApi();
   const ref = previewData?.ref || prismicAPI.masterRef.ref;
-  
+
   return await prismicClient.getByUID('page', uid, { ref });
 }
