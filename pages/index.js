@@ -16,15 +16,6 @@ import Page from '../components/page';
 
 export default ({ doc, preview }) => <Page doc={doc} preview={preview} />;
 
-export async function getStaticPaths() {
-  // Return a list of possible value for UID
-  const paths = [{ params: { uid: '' } }];
-  return {
-    paths,
-    fallback: false,
-  };
-}
-
 export async function getStaticProps({ req, preview, previewData }) {
   //Return page data
   const uid = 'home';
