@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Alert from './alert';
 import Meta from './meta';
+import Footer from './cms/footer';
 
 export default function Layout({
   preview,
@@ -11,6 +12,7 @@ export default function Layout({
   return (
     <>
       <Head>
+        {/* Script for Prismic preview */}
         <script
           async
           defer
@@ -24,7 +26,7 @@ export default function Layout({
       <Alert preview={preview} />
       {/* <Header /> */}
       <main id="main">{children}</main>
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 }
