@@ -10,7 +10,7 @@ const Footer = ({ footer_links, footer_icon, footer_text }) => {
       <Container>
         <Wrapper>
           {footer_icon && <Image data={footer_icon} />}
-          {!!footer_links.length && (
+          {!!footer_links?.length && (
             <Nav>
               <ul>
                 {footer_links.map(el => (

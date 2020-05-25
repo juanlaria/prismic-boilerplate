@@ -10,7 +10,7 @@ const Header = ({ header_links, site_logo }) => {
       <Container>
         <Wrapper>
           {site_logo && <Image data={site_logo} />}
-          {!!header_links.length && (
+          {!!header_links?.length && (
             <Nav>
               <ul>
                 {header_links.map(el => (
