@@ -14,6 +14,17 @@ export async function getAllPagesUids() {
   });
 }
 
+export async function getAllDocsIds() {
+  const docs = await Client().query('');
+  return docs.results.map(doc => {
+    return {
+      params: {
+        id: doc.id,
+      },
+    };
+  });
+}
+
 export async function getSitemapData() {
   const pages = await Client().query(
     Prismic.Predicates.at('document.type', 'page')
@@ -35,4 +46,12 @@ export async function getPageData(req, uid, previewData) {
   const ref = previewData?.ref || prismicAPI.masterRef.ref;
 
   return await prismicClient.getByUID('page', uid, { ref });
+}
+
+export async function getDocData(req, uid, previewData) {
+  const prismicClient = Client(req);
+  const prismicAPI = await prismicClient.getApi();
+  const ref = previewData?.ref || prismicAPI.masterRef.ref;
+
+  return await prismicClient.getByID(uid, { ref });
 }
