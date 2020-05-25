@@ -21,7 +21,7 @@ export async function getStaticProps({ req, params, preview, previewData }) {
   return {
     props: {
       preview: !!preview,
-      doc,
+      doc: doc || null,
     },
   };
 }
