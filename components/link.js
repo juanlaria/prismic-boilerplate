@@ -1,5 +1,5 @@
 import { Link as PrismicLink } from 'prismic-reactjs';
-import { Link as NextLink } from 'next/link';
+import NextLink from 'next/link';
 import { hrefResolver, linkResolver } from '../prismic-configuration';
 
 export default function Link({ link, children }) {
