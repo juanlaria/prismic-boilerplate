@@ -24,5 +24,5 @@ export const linkResolver = (doc) => {
     return `/${doc.uid}`;
   }
   // Backup for all other types
-  return `/doc/${doc.uid}`;
+  return `/doc/${doc.id}`;
 };
