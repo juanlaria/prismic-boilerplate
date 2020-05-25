@@ -1,4 +1,4 @@
-import { getAllPagesUids, getPageData } from '../utils/api';
+import { getAllPagesUids, getPageData, getSingleDocData } from '../utils/api';
 import Page from '../components/page';
 
 export default ({ doc, header, footer, preview }) => (
@@ -18,6 +18,8 @@ export async function getStaticProps({ req, params, preview, previewData }) {
   //Return page data
   const { uid } = params;
   const doc = await getPageData(req, uid, previewData);
+  const header = await getSingleDocData(req, 'header', previewData);
+  const footer = await getSingleDocData(req, 'footer', previewData);
   return {
     props: {
       preview: !!preview,
