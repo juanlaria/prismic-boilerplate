@@ -23,7 +23,7 @@ export const globalStyles = (
       body,
       #__next {
         margin: 0;
-        background: papayawhip;
+        background: black;
         height: 100%;
         font-family: Helvetica, Arial, sans-serif;
         font-size: 20px;
@@ -32,6 +32,8 @@ export const globalStyles = (
       #__next {
         display: flex;
         flex-direction: column;
+        height: auto;
+        min-height: 100%;
       }
 
       h1,
