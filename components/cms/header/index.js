@@ -14,7 +14,7 @@ const Header = ({ header_links, site_logo }) => {
             <Nav>
               <ul>
                 {header_links.map(el => (
-                  <li>
+                  <li key={el.link.id}>
                     <Link link={el.link}>{RichText.asText(el.link_label)}</Link>
                   </li>
                 ))}

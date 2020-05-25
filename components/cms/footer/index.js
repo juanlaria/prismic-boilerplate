@@ -14,7 +14,7 @@ const Footer = ({ footer_links, footer_icon, footer_text }) => {
             <Nav>
               <ul>
                 {footer_links.map(el => (
-                  <li>
+                  <li key={el.link.id}>
                     <Link link={el.link}>{RichText.asText(el.link_label)}</Link>
                   </li>
                 ))}
