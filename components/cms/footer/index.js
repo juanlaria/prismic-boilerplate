@@ -15,9 +15,7 @@ const Footer = ({ footer_links, footer_icon, footer_text }) => {
               <ul>
                 {footer_links.map(el => (
                   <li>
-                    <Link link={el.link}>
-                      <a>{RichText.asText(el.link_label)}</a>
-                    </Link>
+                    <Link link={el.link}>{RichText.asText(el.link_label)}</Link>
                   </li>
                 ))}
               </ul>

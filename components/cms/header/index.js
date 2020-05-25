@@ -15,9 +15,7 @@ const Header = ({ header_links, site_logo }) => {
               <ul>
                 {header_links.map(el => (
                   <li>
-                    <Link link={el.link}>
-                      <a>{RichText.asText(el.link_label)}</a>
-                    </Link>
+                    <Link link={el.link}>{RichText.asText(el.link_label)}</Link>
                   </li>
                 ))}
               </ul>

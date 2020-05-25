@@ -9,7 +9,7 @@ export default function Link({ link, children }) {
   if (link.link_type === 'Document') {
     result = (
       <NextLink as={linkResolver(link)} href={hrefResolver(link)}>
-        {children}
+        <a>{children}</a>
       </NextLink>
     );
   } else {
