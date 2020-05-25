@@ -4,12 +4,20 @@ import { screenSMmax, screenMDmin } from '../../../shared/breakpoints';
 export const FooterSection = styled('footer')`
   background-color: white;
   margin-top: auto;
+
+  p {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
 `;
 
 export const Wrapper = styled('div')`
   padding-top: 1rem;
   padding-bottom: 1rem;
-  border-bottom: 1px solid black;
+
+  & + p {
+    border-top: 1px solid black;
+  }
 
   @media (min-width: ${screenMDmin}) {
     display: flex;
