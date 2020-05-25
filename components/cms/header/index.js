@@ -1,19 +1,19 @@
 import { RichText } from 'prismic-reactjs';
 import { Container } from '../../../shared/styles';
-import Image from '../../image';
 import Link from '../../link';
-import { FooterSection, Wrapper, Nav } from './styles';
+import Image from '../../image';
+import { HeaderSection, Wrapper, Nav } from './styles';
 
-const Footer = ({ footer_links, footer_icon, footer_text }) => {
+const Header = ({ header_links, site_logo }) => {
   return (
-    <FooterSection>
+    <HeaderSection>
       <Container>
         <Wrapper>
-          {footer_icon && <Image data={footer_icon} />}
-          {!!footer_links.length && (
+          {site_logo && <Image data={site_logo} />}
+          {!!header_links.length && (
             <Nav>
               <ul>
-                {footer_links.map(el => (
+                {header_links.map(el => (
                   <li>
                     <Link link={el.link}>
                       <a>{RichText.asText(el.link_label)}</a>
@@ -24,14 +24,9 @@ const Footer = ({ footer_links, footer_icon, footer_text }) => {
             </Nav>
           )}
         </Wrapper>
-        {footer_text && (
-          <p>
-            {new Date().getFullYear()}. {RichText.asText(footer_text)}
-          </p>
-        )}
       </Container>
-    </FooterSection>
+    </HeaderSection>
   );
 };
 
-export default Footer;
+export default Header;

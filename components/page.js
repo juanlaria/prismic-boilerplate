@@ -2,8 +2,9 @@ import React from 'react';
 import Layout from '../components/layout';
 import Render from '../components/render';
 
-export default function Page({ doc, preview }) {
+export default function Page({ doc, header, footer, preview }) {
   if (doc.data) {
+    // Props
     const {
       metadata_canonical,
       metadata_description,
@@ -14,6 +15,7 @@ export default function Page({ doc, preview }) {
       body,
     } = doc.data;
 
+    // Metadata
     const metadata = {
       canonical: metadata_canonical,
       description: metadata_description,
@@ -23,7 +25,7 @@ export default function Page({ doc, preview }) {
     };
 
     return (
-      <Layout preview={preview} metadata={metadata} social={social}>
+      <Layout header={header} footer={footer} preview={preview} metadata={metadata} social={social}>
         {body.map((element, index) => {
           return (
             <Render

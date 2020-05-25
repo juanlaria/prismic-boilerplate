@@ -1,16 +1,13 @@
 import styled from '@emotion/styled';
 import { screenSMmax, screenMDmin } from '../../../shared/breakpoints';
 
-export const FooterSection = styled('footer')`
+export const HeaderSection = styled('header')`
+  position: sticky;
+  top: 0;
   background-color: white;
-  margin-top: auto;
 `;
 
 export const Wrapper = styled('div')`
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid black;
-
   @media (min-width: ${screenMDmin}) {
     display: flex;
     align-items: center;
@@ -19,15 +16,11 @@ export const Wrapper = styled('div')`
 `;
 
 export const Nav = styled('nav')`
-  picture + & {
-    @media (max-width: ${screenSMmax}) {
-      margin-top: 1rem;
-    }
-  }
   ul {
     list-style: none;
 
     @media (max-width: ${screenSMmax}) {
+      display: none;
       padding-left: 0;
     }
 
@@ -43,7 +36,6 @@ export const Nav = styled('nav')`
       @media (max-width: ${screenSMmax}) {
         margin-top: 0.5rem;
       }
-
       @media (min-width: ${screenMDmin}) {
         margin-left: 1rem;
       }

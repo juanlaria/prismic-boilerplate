@@ -55,3 +55,11 @@ export async function getDocData(req, uid, previewData) {
 
   return await prismicClient.getByID(uid, { ref });
 }
+
+export async function getSingleDocData(req, type, previewData) {
+  const prismicClient = Client(req);
+  const prismicAPI = await prismicClient.getApi();
+  const ref = previewData?.ref || prismicAPI.masterRef.ref;
+
+  return await prismicClient.getSingle(type, { ref });
+}

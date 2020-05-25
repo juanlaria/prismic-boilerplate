@@ -1,12 +1,15 @@
 import Head from 'next/head';
 import Alert from './alert';
 import Meta from './meta';
+import Header from './cms/header';
 import Footer from './cms/footer';
 
 export default function Layout({
   preview,
   metadata,
   social,
+  header,
+  footer,
   children,
 }) {
   return (
@@ -19,14 +22,11 @@ export default function Layout({
           src="//static.cdn.prismic.io/prismic.js?repo=juanlaria&new=true"
         />
       </Head>
-      <Meta
-        metadata={metadata}
-        social={social}
-      />
+      <Meta metadata={metadata} social={social} />
       <Alert preview={preview} />
-      {/* <Header /> */}
+      {header && <Header {...header.data} />}
       <main id="main">{children}</main>
-      <Footer />
+      {footer && <Footer {...footer.data} />}
     </>
   );
 }
