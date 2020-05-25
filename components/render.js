@@ -1,8 +1,9 @@
 import PrismicComponents from './cms';
 
 export default function Render({ data }) {
-  const { slice_type } = data;
-  const Component = PrismicComponents[slice_type];
+  const { slice_type, type } = data;
+  const componentType = slice_type || type;
+  const Component = PrismicComponents[componentType];
   if (Component) return <Component {...data} />;
-  return <div className="missing-element">{`Missing component: ${slice_type}`}</div>;
+  return <div className="missing-element">{`Missing component: ${componentType}`}</div>;
 }
