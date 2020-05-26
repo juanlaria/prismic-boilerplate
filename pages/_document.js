@@ -39,11 +39,11 @@ export default class MyDocument extends Document {
             data-emotion-css={this.props.ids.join(' ')}
             dangerouslySetInnerHTML={{ __html: this.props.css }}
           />
-          <link
+          {/* <link
             href="https://gitcdn.xyz/repo/octoshrimpy/blokkfont/master/blokkfont.css"
             rel="stylesheet"
             type="text/css"
-          />
+          /> */}
         </Head>
         <body>
           <Main />
