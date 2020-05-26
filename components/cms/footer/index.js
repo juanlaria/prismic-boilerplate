@@ -13,8 +13,8 @@ const Footer = ({ footer_links, footer_icon, footer_text }) => {
           {!!footer_links?.length && (
             <Nav>
               <ul>
-                {footer_links.map(el => (
-                  <li key={el.link.id}>
+                {footer_links.map((el, index) => (
+                  <li key={`${el.link.id}-${index}`}>
                     <Link link={el.link}>{RichText.asText(el.link_label)}</Link>
                   </li>
                 ))}

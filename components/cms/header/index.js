@@ -13,8 +13,8 @@ const Header = ({ header_links, site_logo }) => {
           {!!header_links?.length && (
             <Nav>
               <ul>
-                {header_links.map(el => (
-                  <li key={el.link.id}>
+                {header_links.map((el, index) => (
+                  <li key={`${el.link.id}-${index}`}>
                     <Link link={el.link}>{RichText.asText(el.link_label)}</Link>
                   </li>
                 ))}
