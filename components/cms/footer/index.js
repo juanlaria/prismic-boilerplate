@@ -1,4 +1,5 @@
 import { RichText } from 'prismic-reactjs';
+import PropTypes from 'prop-types';
 import { Container } from '../../../shared/styles';
 import Image from '../../image';
 import Link from '../../link';
@@ -30,6 +31,18 @@ const Footer = ({ footer_links, footer_icon, footer_text }) => {
       </Container>
     </FooterSection>
   );
+};
+
+Footer.propTypes = {
+  footer_links: PropTypes.arrayOf(PropTypes.shape({})),
+  footer_icon: PropTypes.shape({}),
+  footer_text: PropTypes.arrayOf(PropTypes.shape({})),
+};
+
+Footer.defaultProps = {
+  footer_links: null,
+  footer_icon: null,
+  footer_text: null,
 };
 
 export default Footer;

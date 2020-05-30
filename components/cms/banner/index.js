@@ -1,4 +1,5 @@
 import { RichText } from 'prismic-reactjs';
+import PropTypes from 'prop-types';
 import { Container } from '../../../shared/styles';
 import Image from '../../image';
 import Link from '../../link';
@@ -31,6 +32,16 @@ const Banner = ({
       </Container>
     </BannerSection>
   );
+};
+
+Banner.propTypes = {
+  primary: PropTypes.shape({
+    banner_title: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+    banner_description: PropTypes.arrayOf(PropTypes.shape({})),
+    banner_image: PropTypes.shape({}).isRequired,
+    banner_button_label: PropTypes.arrayOf(PropTypes.shape({})),
+    banner_button_link: PropTypes.shape({}),
+  }).isRequired,
 };
 
 export default Banner;

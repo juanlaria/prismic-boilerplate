@@ -1,4 +1,5 @@
 import { RichText } from 'prismic-reactjs';
+import PropTypes from 'prop-types';
 import { Container } from '../../../shared/styles';
 import Link from '../../link';
 import Image from '../../image';
@@ -25,6 +26,16 @@ const Header = ({ header_links, site_logo }) => {
       </Container>
     </HeaderSection>
   );
+};
+
+Header.propTypes = {
+  header_links: PropTypes.arrayOf(PropTypes.shape({})),
+  site_logo: PropTypes.shape({}),
+};
+
+Header.defaultProps = {
+  header_links: null,
+  site_logo: null,
 };
 
 export default Header;

@@ -1,12 +1,13 @@
 import Head from 'next/head';
+import PropTypes from 'prop-types';
 
-export default function TwitterCard({
+const TwitterCard = ({
   card_type,
   image,
   title,
   description,
   twitter_handle,
-}) {
+}) => {
   return (
     <Head>
       {card_type === 'Summary Card with Large Image' ? (
@@ -27,4 +28,22 @@ export default function TwitterCard({
       )}
     </Head>
   );
-}
+};
+
+TwitterCard.propTypes = {
+  card_type: PropTypes.string,
+  image: PropTypes.shape({}),
+  title: PropTypes.string,
+  description: PropTypes.string,
+  twitter_handle: PropTypes.string,
+};
+
+TwitterCard.defaultProps = {
+  card_type: null,
+  image: null,
+  title: null,
+  description: null,
+  twitter_handle: null,
+};
+
+export default TwitterCard;

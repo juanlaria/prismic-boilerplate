@@ -1,8 +1,9 @@
 import { Link as PrismicLink } from 'prismic-reactjs';
 import NextLink from 'next/link';
+import PropTypes from 'prop-types';
 import { hrefResolver, linkResolver } from '../prismic-configuration';
 
-export default function Link({ link, children }) {
+const Link = ({ link, children }) => {
   let result = '';
   const url = PrismicLink.url(link, linkResolver);
 
@@ -21,4 +22,11 @@ export default function Link({ link, children }) {
     );
   }
   return result;
-}
+};
+
+Link.propTypes = {
+  children: PropTypes.string.isRequired,
+  link: PropTypes.shape({}).isRequired,
+};
+
+export default Link;

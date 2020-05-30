@@ -1,14 +1,9 @@
 import Head from 'next/head';
+import PropTypes from 'prop-types';
 
 const { PUBLIC_NAME } = process.env;
 
-export default function Metadata({
-  title,
-  canonical,
-  description,
-  keywords,
-  indexing,
-}) {
+const Metadata = ({ title, canonical, description, keywords, indexing }) => {
   return (
     <Head>
       <title>{title || PUBLIC_NAME}</title>
@@ -18,4 +13,22 @@ export default function Metadata({
       {indexing && <meta name="robots" content={indexing} />}
     </Head>
   );
-}
+};
+
+Metadata.propTypes = {
+  title: PropTypes.string,
+  canonical: PropTypes.string,
+  description: PropTypes.string,
+  keywords: PropTypes.string,
+  indexing: PropTypes.string,
+};
+
+Metadata.defaultProps = {
+  title: null,
+  canonical: null,
+  description: null,
+  keywords: null,
+  indexing: null,
+};
+
+export default Metadata;

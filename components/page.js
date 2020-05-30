@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import Layout from '../components/layout';
 import Render from '../components/render';
 
-export default function Page({ doc, header, footer, preview }) {
+const Page = ({ doc, header, footer, preview }) => {
   const [offline, setOffline] = useState(false);
 
   if (doc.data) {
@@ -27,7 +28,7 @@ export default function Page({ doc, header, footer, preview }) {
     };
 
     useEffect(() => {
-      const handleNetworkChange = (e) => {
+      const handleNetworkChange = e => {
         setOffline(!navigator.onLine);
       };
       window.addEventListener('online', handleNetworkChange);
@@ -56,4 +57,19 @@ export default function Page({ doc, header, footer, preview }) {
   } else {
     return <h1>Empty page</h1>;
   }
-}
+};
+
+Page.propTypes = {
+  doc: PropTypes.shape({}).isRequired,
+  header: PropTypes.shape({}),
+  footer: PropTypes.shape({}),
+  preview: PropTypes.bool,
+};
+
+Page.defaultProps = {
+  header: null,
+  footer: null,
+  preview: false,
+};
+
+export default Page;
