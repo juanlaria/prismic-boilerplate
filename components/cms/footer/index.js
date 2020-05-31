@@ -10,7 +10,7 @@ const Footer = ({ footer_links, footer_icon, footer_text }) => {
     <FooterSection>
       <Container>
         <Wrapper>
-          {footer_icon && <Image data={footer_icon} />}
+          {footer_icon && <Image data={footer_icon} loading="eager" />}
           {!!footer_links?.length && (
             <Nav>
               <ul>

@@ -12,7 +12,7 @@ const Hero = ({ primary }) => {
         <Container>
           <Wrapper>
             {hero_title && <RichText render={hero_title} />}
-            {hero_background_image && <Image data={hero_background_image} />}
+            {hero_background_image && <Image data={hero_background_image} loading="lazy" />}
           </Wrapper>
         </Container>
       </HeroSection>

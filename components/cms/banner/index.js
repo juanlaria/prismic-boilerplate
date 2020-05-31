@@ -18,7 +18,7 @@ const Banner = ({
     <BannerSection>
       <Container>
         <Wrapper>
-          {banner_image && <Image data={banner_image} />}
+          {banner_image && <Image data={banner_image} loading="lazy" />}
           <TextSection>
             {banner_title && <RichText render={banner_title} />}
             {banner_description && <RichText render={banner_description} />}

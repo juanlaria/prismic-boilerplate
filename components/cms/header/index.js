@@ -10,7 +10,7 @@ const Header = ({ header_links, site_logo }) => {
     <HeaderSection>
       <Container>
         <Wrapper>
-          {site_logo && <Image data={site_logo} />}
+          {site_logo && <Image data={site_logo} loading="eager" />}
           {!!header_links?.length && (
             <Nav>
               <ul>

@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-const Image = ({ data }) => {
+const Image = ({ data, loading }) => {
   const { dimensions, url, alt, bigger } = data;
   return (
     <picture>
@@ -10,6 +10,7 @@ const Image = ({ data }) => {
         alt={alt || ''}
         width={dimensions ? dimensions.width : false}
         height={dimensions ? dimensions.height : false}
+        loading={loading}
       />
     </picture>
   );
@@ -25,6 +26,11 @@ Image.propTypes = {
     alt: PropTypes.string,
     bigger: PropTypes.shape({}),
   }).isRequired,
+  loading: PropTypes.string,
+};
+
+Image.defaultProps = {
+  loading: 'auto',
 };
 
 export default Image;
