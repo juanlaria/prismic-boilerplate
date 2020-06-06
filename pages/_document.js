@@ -42,10 +42,10 @@ export default class MyDocument extends Document {
 
           <link
             rel="preconnect"
-            href="https://juanlaria.prismic.io"
+            href={`https://${PRISMIC_REPOSITORY_NAME}.prismic.io`}
             crossorigin
           />
-          <link rel="dns-prefetch" href="https://juanlaria.prismic.io" />
+          <link rel="dns-prefetch" href={`https://${PRISMIC_REPOSITORY_NAME}.prismic.io`} />
           <link
             rel="preconnect"
             href="https://static.cdn.prismic.io"
