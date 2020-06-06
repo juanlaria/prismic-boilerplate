@@ -1,7 +1,7 @@
 import Document, { Head, Main, NextScript } from 'next/document';
 import { extractCritical } from 'emotion-server';
 
-const { PUBLIC_NAME } = process.env;
+const { PUBLIC_NAME, PRISMIC_REPOSITORY_NAME } = process.env;
 
 export default class MyDocument extends Document {
   static getInitialProps({ renderPage }) {
@@ -18,7 +18,7 @@ export default class MyDocument extends Document {
 
   render() {
     return (
-      <html lang={this.lang} dir='ltr'>
+      <html lang={this.lang} dir="ltr">
         <meta name="application-name" content={PUBLIC_NAME} />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
@@ -39,6 +39,19 @@ export default class MyDocument extends Document {
             data-emotion-css={this.props.ids.join(' ')}
             dangerouslySetInnerHTML={{ __html: this.props.css }}
           />
+
+          <link
+            rel="preconnect"
+            href="https://juanlaria.prismic.io"
+            crossorigin
+          />
+          <link rel="dns-prefetch" href="https://juanlaria.prismic.io" />
+          <link
+            rel="preconnect"
+            href="https://static.cdn.prismic.io"
+            crossorigin
+          />
+          <link rel="dns-prefetch" href="https://static.cdn.prismic.io" />
           {/* <link
             href="https://gitcdn.xyz/repo/octoshrimpy/blokkfont/master/blokkfont.css"
             rel="stylesheet"
@@ -48,6 +61,13 @@ export default class MyDocument extends Document {
         <body>
           <Main />
           <NextScript />
+
+          {/* Script for Prismic preview */}
+          <script
+            async
+            defer
+            src={`//static.cdn.prismic.io/prismic.js?repo=${PRISMIC_REPOSITORY_NAME}&new=true`}
+          />
         </body>
       </html>
     );
