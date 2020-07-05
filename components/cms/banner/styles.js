@@ -51,6 +51,5 @@ export const Wrapper = styled('div')`
   @media (min-width: ${screenMDmin}) {
     display: flex;
     align-items: center;
-    justify-content: space-between;
   }
 `;
