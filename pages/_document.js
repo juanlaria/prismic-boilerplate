@@ -1,7 +1,7 @@
 import Document, { Head, Main, NextScript } from 'next/document';
 import { extractCritical } from 'emotion-server';
 
-const { PUBLIC_NAME, PRISMIC_REPOSITORY_NAME } = process.env;
+const { PUBLIC_NAME, PRISMIC_REPOSITORY_NAME, NODE_ENV } = process.env;
 
 export default class MyDocument extends Document {
   static getInitialProps({ renderPage }) {
@@ -20,11 +20,6 @@ export default class MyDocument extends Document {
     return (
       <html lang={this.lang} dir="ltr">
         <meta name="application-name" content={PUBLIC_NAME} />
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-        <meta name="apple-mobile-web-app-title" content={PUBLIC_NAME} />
-        <meta name="format-detection" content="telephone=no" />
-        <meta name="mobile-web-app-capable" content="yes" />
         <meta name="theme-color" content="#FFFFFF" />
 
         <link
@@ -32,7 +27,6 @@ export default class MyDocument extends Document {
           sizes="180x180"
           href="/favicon/180x180.png"
         />
-        <link rel="manifest" href="/manifest.json" />
         <link rel="shortcut icon" href="/favicon/favicon.ico" />
         <Head>
           <style
@@ -43,22 +37,20 @@ export default class MyDocument extends Document {
           <link
             rel="preconnect"
             href={`https://${PRISMIC_REPOSITORY_NAME}.prismic.io`}
-            crossorigin
+            crossOrigin="true"
           />
-          <link rel="dns-prefetch" href={`https://${PRISMIC_REPOSITORY_NAME}.prismic.io`} />
+          <link
+            rel="dns-prefetch"
+            href={`https://${PRISMIC_REPOSITORY_NAME}.prismic.io`}
+          />
           <link
             rel="preconnect"
             href="https://static.cdn.prismic.io"
-            crossorigin
+            crossOrigin="true"
           />
           <link rel="dns-prefetch" href="https://static.cdn.prismic.io" />
-          {/* <link
-            href="https://gitcdn.xyz/repo/octoshrimpy/blokkfont/master/blokkfont.css"
-            rel="stylesheet"
-            type="text/css"
-          /> */}
         </Head>
-        <body>
+        <body style={NODE_ENV === 'development' ? { display: 'block' } : {}}>
           <Main />
           <NextScript />
 
