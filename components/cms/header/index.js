@@ -6,6 +6,10 @@ import Image from '../../image';
 import { HeaderSection, Wrapper, Nav } from './styles';
 
 const Header = ({ header_links, site_logo }) => {
+  if (!header_links?.length || !site_logo) {
+    return false;
+  }
+
   return (
     <HeaderSection>
       <Container>
