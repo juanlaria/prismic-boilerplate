@@ -5,7 +5,8 @@ const Render = ({ data }) => {
   const { slice_type, type } = data;
   const componentType = slice_type || type;
   const Component = PrismicComponents[componentType];
-  if (Component) return <Component {...data} />;
+  const componentData = data.data || data;
+  if (Component) return <Component {...componentData} />;
   return (
     <div className="missing-element">{`Missing component: ${componentType}`}</div>
   );
